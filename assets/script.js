@@ -1,5 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var passwordText = document.querySelector("textarea");
+
 const upper = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 const Lower = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 const numbers = ["0","1","2","3","4","5","6","7","8","9"]
@@ -28,7 +30,7 @@ function generatePassword() {
   if (userSymbols === true) {character=character.concat(symbols)};
 
   for (var i = 0; i < passLength; i++) {
-    var randomindex = Math.floor(Math.random() * character.Length);
+    var randomindex = Math.floor(Math.random() * character.length);
     console.log(randomindex)
     passWord = passWord + character[randomindex];
   }
@@ -37,13 +39,17 @@ function generatePassword() {
 
 // Write password to the #password input
 function writePassword() {
+  //resetPassword();
   var password = generatePassword();
-  var passwordText = document.querySelector("Bloodborne2!");
-
   passwordText.value = password;
-
 }
 
+
+//rest password when clicked
+function resetPassword() {
+console.log("Reset Password")
+passWord = '';
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
   
